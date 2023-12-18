@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.DtroMap" parent="android:Theme.Material.Light.DarkActionBar">
+    <style name="Theme.GFriendMusicNumber" parent="android:Theme.Material.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <!-- Customize your theme here. -->
     </style>
