@@ -1,6 +1,7 @@
 package com.hyeonjs.gfriendmusicnumber;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Pair;
 import android.widget.ArrayAdapter;
@@ -20,10 +21,14 @@ public class MainActivity extends Activity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(1);
 
-        Pair<String[], String[]> data = createSongList();
+        final Pair<String[], String[]> data = createSongList();
         ListView list = new ListView(this);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data.first);
         list.setAdapter(adapter);
+        list.setOnItemClickListener((parent, view, pos, id) -> {
+            String[] datum = data.second[pos].replace("null", "정보 없음").split(",");
+            showDialog(datum[0], "TJ : " + datum[1] + "\n금영 : " + datum[2] + "\nJOYSOUND : " + datum[3]);
+        });
         layout.addView(list);
 
         setContentView(layout);
@@ -64,5 +69,12 @@ public class MainActivity extends Activity {
         return "";
     }
 
+    private void showDialog(String title, String msg) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle(title);
+        dialog.setMessage(msg);
+        dialog.setNegativeButton("닫기", null);
+        dialog.show();
+    }
 
 }
