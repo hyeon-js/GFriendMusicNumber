@@ -26,8 +26,12 @@ public class MainActivity extends Activity {
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data.first);
         list.setAdapter(adapter);
         list.setOnItemClickListener((parent, view, pos, id) -> {
-            String[] datum = data.second[pos].replace("null", "정보 없음").split(",");
-            showDialog(datum[0], "TJ : " + datum[1] + "\n금영 : " + datum[2] + "\nJOYSOUND : " + datum[3]);
+            String[] datum = data.second[pos].split(",");
+            showDialog(datum[0], ("TJ : " + datum[1].replace(" ", ", ") + "\n" +
+                    "금영 : " + datum[2].replace(" ", ", ") + "\n" +
+                    "JOYSOUND (한국어) : " + datum[3].replace(" ", ", ") + "\n" +
+                    "JOYSOUND (일본어) : " + datum[4].replace(" ", ", "))
+                    .replace("null", "정보 없음"));
         });
         layout.addView(list);
 
