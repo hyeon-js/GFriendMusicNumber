@@ -35,6 +35,9 @@ public class MainActivity extends Activity {
         });
         layout.addView(list);
 
+        int pad = dip2px(16);
+        list.setPadding(pad, pad, pad, pad);
+
         setContentView(layout);
     }
 
@@ -79,6 +82,11 @@ public class MainActivity extends Activity {
         dialog.setMessage(msg);
         dialog.setNegativeButton("닫기", null);
         dialog.show();
+    }
+
+
+    private int dip2px(int dips) {
+        return (int) Math.ceil(dips * this.getResources().getDisplayMetrics().density);
     }
 
 }
