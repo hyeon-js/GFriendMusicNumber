@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data.first);
         list.setAdapter(adapter);
         list.setOnItemClickListener((parent, view, pos, id) -> {
-            String[] datum = data.second[pos].split(",");
+            String[] datum = data.second[pos].split("::");
             showDialog(datum[0], ("TJ : " + datum[1].replace(" ", ", ") + "\n" +
                     "금영 : " + datum[2].replace(" ", ", ") + "\n" +
                     "JOYSOUND (한국어) : " + datum[3].replace(" ", ", ") + "\n" +
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
             String[] names = new String[data.length];
             String[] list = new String[data.length];
             for (int n = 0; n < data.length; n++) {
-                String[] datum = data[n].split(",");
+                String[] datum = data[n].split("::");
                 names[n] = datum[0];
                 list[n] = data[n];
             }
